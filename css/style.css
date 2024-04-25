@@ -572,12 +572,12 @@ input {
   padding-bottom: 50px;
 }
 
-.form {
+.admin__form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-.form__item {
+.admin__form__item {
   margin-bottom: 20px;
 }
 
