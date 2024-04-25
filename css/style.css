@@ -567,19 +567,26 @@ input {
   transform: translate(-50%, -50%) translateX(-500px) scale(0);
 }
 
-.form {
+.account {
   padding-top: 120px;
   padding-bottom: 50px;
 }
-.form__title {
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.form__item {
+  margin-bottom: 20px;
+}
+
+.title {
   color: #3d3d3d;
   font-size: 30px;
   line-height: 30px;
   margin-bottom: 20px;
   text-align: center;
-}
-.form__item {
-  margin-bottom: 20px;
 }
 
 label {
@@ -588,4 +595,8 @@ label {
   font-size: 15px;
   font-weight: 400;
   line-height: 15px;
+}
+
+.input__username {
+  width: 100%;
 }
