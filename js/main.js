@@ -4,6 +4,11 @@ const cancelBtn = document.querySelector('.cancel-btn');
 const cards = document.querySelector('.cards')
 const moreBtn = document.querySelector('.more-btn')
 const Load = document.querySelector(".loading")
+const loginBtn = document.querySelector('.header__login-btn')
+const loginModal = document.querySelector('.login')
+const loginBackground = document.querySelector('.background')
+const loginCancel = document.querySelector('.login-cancel-btn');
+const registerCancel = document.querySelector('.register-cancel-btn')
 
 const API_URL = 'https://dummyjson.com';
 
@@ -17,6 +22,11 @@ hamburgerBtn.addEventListener('click', () => {
 
 cancelBtn.addEventListener('click', () => {
     Toggle();
+})
+
+loginCancel.addEventListener('click', () => {
+    loginBackground.style.display = "none"
+    loginModal.style.display = "none"
 })
 
 
@@ -102,3 +112,66 @@ function Loading(load) {
 }
 
 Loading(4)
+
+
+
+const form = document.querySelector(".form");
+const username = document.querySelector(".input__username");
+const password = document.querySelector(".input__password");
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    let user = {
+        username: username.value,
+        password: password.value,
+    }
+
+    signIn(user);
+
+})
+
+async function signIn(user) {
+    await fetch(`${API_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+    })
+        .then(res => res.json())
+        .then(res => {
+            console.log("ress>>>", res);
+            if (res.message === "Invalid credentials") {
+                return alert("username or password is incorrect")
+            }
+            localStorage.setItem("x-auth-token", res.token)
+            window.open(`/pages/admin.html`, "_self")
+        })
+        .catch(err => console.log("err>>>", err))
+}
+
+const register = document.querySelector('.register')
+const registerBtnHover = document.querySelector('.register-btn2')
+const loginBtnHover = document.querySelector('.login-btn')
+
+registerBtnHover.addEventListener("click", () => {
+    register.classList.add('show-register')
+    loginModal.classList.add('hide-login')
+})
+
+loginBtnHover.addEventListener("click", () => {
+    register.classList.remove('show-register')
+    loginModal.classList.remove('hide-login')
+})
+
+
+registerCancel.addEventListener("click", () => {
+    loginBackground.style.display = "none";
+    register.style.display = "none";
+    register.classList.remove('show-register')
+})
+
+loginBtn.addEventListener('click', () => {
+    loginBackground.style.display = "block"
+    loginModal.style.display = "flex"
+    loginModal.classList.remove('hide-login')
+})

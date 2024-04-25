@@ -62,10 +62,10 @@
                         <button class="header__korzina-btn">
                             <img src="./images/korzina.svg" alt="img">
                         </button>
-                        <button class="header__login-btn">
+                        <!-- <button class="header__login-btn">
                             <img src="./images/Logout.svg" alt="img">
                             Login
-                        </button>
+                        </button> -->
                     </li>
                 </ul>
                 <div class="header__btns">
@@ -163,7 +163,55 @@
                 </div>
             </div>
         </section>
+
+        <!-- moadal -->
+        <section class="modal">
+            <!-- login -->
+            <div class="login">
+                <div class="cancel-box">
+                    <button class="login-cancel-btn">
+                        <img src="./images/x.svg" alt="img">
+                    </button>
+                </div>
+                <div class="login__title">
+                    <button class="login-hover-btn ">Login</button> |
+                    <button class="register-hover-btn register-btn2">Register</button>
+                </div>
+                <form class="form">
+                    <p class="login__desc">Enter your username and password to login.</p>
+
+                    <input value="atuny0" class="input__username" type="text">
+                    <input value="9uQFF1Lh" class="input__password" type="password">
+                    <a class="login__forgot" href="#">Forgot Password?</a>
+                    <button class="login__btn">Login</button>
+                </form>
+            </div>
+            <!-- register -->
+            <div class="register">
+                <div class="cancel-box">
+                    <button class="register-cancel-btn">
+                        <img src="./images/x.svg" alt="img">
+                    </button>
+                </div>
+                <div class="login__title">
+                    <button class="login-hover-btn login-btn">Login</button> |
+                    <button class="register-hover-btn register-btn">Register</button>
+                </div>
+                <form class="register-form">
+
+                    <p class="login__desc">Enter your username and password to login.</p>
+
+                    <input class="input__username" type="text" placeholder="Enter your username">
+                    <input class="input__password" type="password" placeholder="Enter your password">
+                    <input class="input__email" type="email" placeholder="Enter your email">
+                    <a class="login__forgot" href="#">Forgot Password?</a>
+                    <button class="login__btn">Register</button>
+                </form>
+            </div>
+        </section>
     </main>
+
+    <div class="background"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
